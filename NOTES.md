@@ -1,7 +1,7 @@
 # Anotações - Economia Regional e Urbana - FEAU/USP - 2023.01
 
 - [x] [Qual o sginificado do símbolo do NEREUS](http://www.usp.br/nereus/wp-content/uploads/Qual-o-significado-do-s%C3%ADmbolo-do-NEREUS.pdf)
-- [ ] [Economia Regional - Teorias e Métodos de Análise - Capítulo 04](bibliografia/Economia%20Regional%20-%20Teorias%20e%20Métodos%20de%20Análise%20-%20Capítulo%2004.pdf)
+- [x] [Economia Regional - Teorias e Métodos de Análise - Capítulo 04](bibliografia/Economia%20Regional%20-%20Teorias%20e%20Métodos%20de%20Análise%20-%20Capítulo%2004.pdf)
 - [ ] []
 
 ## Anotações - Leituras
@@ -18,7 +18,7 @@
 > ![](assets/2023-03-19-22-12-42.png)
 
 
-- ***Quociente Locacional***: $$QL_{ij} = \frac{\frac{E_{ij}}{\sum_j E_{ij}}}{\frac{\sum_i E_{ij}}{\sum_i \sum_j E_{ij}}} = \frac{\text{Part. da região em um setor particular (\%)}}{\text{Part. da região no total (\%)}}$$ 
+- ***Quociente Locacional***: $$QL_{ij} = \frac{\frac{E_{ij}}{\sum_j E_{ij}}}{\frac{\sum_i E_{ij}}{\sum_i \sum_j E_{ij}}} = \frac{\text{Part. da região em um setor particular \% }}{\text{Part. da região no total \% }}$$ 
 
   - É um indicador que resume informações sobre uma região.
   - "Se o valor do quociente for maior do que 1, isso significa que a região é relativamente mais importante naquele setor."
