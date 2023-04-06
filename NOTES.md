@@ -18,25 +18,25 @@
 > ![](assets/2023-03-19-22-12-42.png)
 
 
-- ***Quociente Locacional***: $$QL_{ij} = \frac{\frac{E_{ij}}{\sum_j E_{ij}}}{\frac{\sum_i E_{ij}}{\sum_i \sum_j E_{ij}}} = \frac{\text{Part. da região em um setor particular (\% )}}{\text{Part. da região no total (\% )}}$$ 
+- ***Quociente Locacional***: $$QL_{ij} = \frac{\frac{E_{ij}}{\sum_j E_{ij}}}{\frac{\sum_i E_{ij}}{\sum_i \sum_j E_{ij}}} = \frac{\text{Part. da região em um setor particular (\%)}}{\text{Part. da região no total (\%)}}$$ 
 
   - É um indicador que resume informações sobre uma região.
   - "Se o valor do quociente for maior do que 1, isso significa que a região é relativamente mais importante naquele setor."
   - *(...) Um quociente locacional superior à unidade poderia indicar que a atividade na região é básica (voltada para a exportação) e um inferior à unidade representaria uma atividade não-básica (voltada para o mercado da própria região).*
 
-- ***Coeficiente de Localização***: $$CL_{i} = \frac{1}{2} \sum_j | \frac{E_{ij}}{\sum_j E_{ij}} - \frac{\sum_i E_{ij}}{\sum_i \sum_j E_{ij}} | = \frac{1}{2} \sum | \text{Part. da região em um setor (\% )} - \text{Part. da região no total (\% )} |$$
+- ***Coeficiente de Localização***: $$CL_{i} = \frac{1}{2} \sum_j | \frac{E_{ij}}{\sum_j E_{ij}} - \frac{\sum_i E_{ij}}{\sum_i \sum_j E_{ij}} | = \frac{1}{2} \sum | \text{Part. da região em um setor (\% )} - \text{Part. da região no total (\%)} |$$
   
   - É um indicador que resume informações sobre um setor.
   - O coeficiente de localização relaciona a *distribuição percentual num dado setor entre as regiões* ($\frac{E_{ij}}{E_{i.}}$) com a *distribuição percentual do emprego total entre as regiões* ($\frac{E_{.j}}{E_{..}}$)
   - Se o valor do coeficiente for igual a 0, o setor *i* estará distribuído da mesma forma que o conjunto de todos os setores. Se o seu valor for próximo de 1, ele demonstrará que o setor *i* apresenta um padrão de concentração regional mais intenso do que o conjunto de todos os setores.
 
-- ***Coeficiente de Associação Geográfica***: $$CAG_{ik} = \frac{1}{2} \sum_j | \overbrace{\frac{E_{ij}}{\sum_i E_{ij}}}^{\text{setor i}} - \overbrace{\frac{E_{ij}}{\sum_i E_{ij}}}^{\text{setor k}} | = \frac{1}{2} \sum_j | \text{Part. da região no setor i(\% )} - \text{Part. da região no setor k (\% )} |$$
+- ***Coeficiente de Associação Geográfica***: $$CAG_{ik} = \frac{1}{2} \sum_j | \overbrace{\frac{E_{ij}}{\sum_i E_{ij}}}^{\text{setor i}} - \overbrace{\frac{E_{ij}}{\sum_i E_{ij}}}^{\text{setor k}} | = \frac{1}{2} \sum_j | \text{Part. da região no setor i (\%)} - \text{Part. da região no setor k (\%)} |$$
   
   - É um indicador que resume informações sobre um setor.
   - O coeficiente de associação geográfica compara as distribuições percentuais de emprego entre dois setores.
   - Se o coeficiente for próximo de 0, então o setor i estará distribuído regionalmente da mesma forma que o setor k, mostrando que os padrões locacionais dos dois setores estão associados geograficamente.
 
-- ***Coeficiente de Redistribuição***: $$CR_i = \frac{1}{2} \sum_j | \overbrace{\frac{E_{ij}}{\sum_j E_{ij}}}^{T_1} - \overbrace{\frac{E_{ij}}{\sum_j E_{ij}}}^{T_2} | = \frac{1}{2} \sum_j | \text{Part. da região no setor em T0(\% )} - \text{Part. da região no setor em T1 (\% )} |$$
+- ***Coeficiente de Redistribuição***: $$CR_i = \frac{1}{2} \sum_j | \overbrace{\frac{E_{ij}}{\sum_j E_{ij}}}^{T_1} - \overbrace{\frac{E_{ij}}{\sum_j E_{ij}}}^{T_2} | = \frac{1}{2} \sum_j | \text{Part. da região no setor em T0(\%)} - \text{Part. da região no setor em T1 (\%)} |$$
   - É um setor que resume informações de concentração espacial de setores ao longo do tempo.
   - O coeficiente de redistribuição relaciona a distribuição percentual de um mesmo setor em dois períodos de tempo.
   - Se o coeficiente for próximo de 0, não ocorreram mudanças significativas no padrão espacial de localização do setor.
@@ -46,12 +46,12 @@
   - Uma curva que sobre mais rapidamente indica uma atividade econômica mais concentrada.
   - A interpretação delas é como da curva de Lorenz e a leitura é a mesma que fazemos ao observar os percentis de uma distribuição.
 
-- ***Coeficiente de Especialização***: $$ CE_j = \frac{1}{2} \sum_i | \frac{E_{ij} }{\sum_i E_{ij} } - \frac{\sum_j E_{ij} }{\sum_i \sum_j E_ij} | = \frac{1}{2} \sum_{\text{Setores da Região}} | \text{Part. do setor na região (\% )} - \text{Part. da região no total (\% )} |$$
+- ***Coeficiente de Especialização***: $$CE_j = \frac{1}{2} \sum_i | \frac{E_{ij} }{\sum_i E_{ij} } - \frac{\sum_j E_{ij} }{\sum_i \sum_j E_ij} | = \frac{1}{2} \sum_{\text{Setores da Região}} | \text{Part. do setor na região (\%)} - \text{Part. da região no total (\%)} |$$
   - É um indicador que compara a estrutura produtiva da região em destaque com a estrutura produtiva nacional.
   - Se for igual a 0, a região possui uma composição setorial idêntica à da nação.
   - A ideia é que é a distribuição esperada dos setores produtivos da região seja igual a da nação. É bem semelhante ao *Coeficiente de Contingência de Pearson*.
 
-- ***Coeficiente de Reestruturação***: $$CR_j = \frac{1}{2} \sum_i | \overbrace{ \frac{E_{ij}}{\sum_i E_{ij}} }^{T_0} - \overbrace{\frac{E_{ij}}{\sum_i E_{ij}}}^{T_1} | = \frac{1}{2} \sum_{\text{Setores da Região}} | \text{Part. do setor na região em T0(\% )} - \text{Part. do setor na região em T1 (\% )} |$$
+- ***Coeficiente de Reestruturação***: $$CR_j = \frac{1}{2} \sum_i | \overbrace{ \frac{E_{ij}}{\sum_i E_{ij}} }^{T_0} - \overbrace{\frac{E_{ij}}{\sum_i E_{ij}}}^{T_1} | = \frac{1}{2} \sum_{\text{Setores da Região}} | \text{Part. do setor na região em T0(\%)} - \text{Part. do setor na região em T1 (\%)} |$$
   - É um indicador que avalia o grau de mudança na especialização da região.
   - Quando é igual a 0, não houve modificações na composição setorial da região.
 
