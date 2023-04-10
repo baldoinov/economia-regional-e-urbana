@@ -1,0 +1,45 @@
+{\rtf1\ansi\deff0{\fonttbl{\f0\fnil\fprq12\fcharset0 Courier New;}{\f1\fswiss\fprq2\fcharset0 System;}}
+\viewkind4\uc1\pard\lang1033\f0\fs24 
+\par \b \ul REGRESSION\ulnone \b0 
+\par \b \ul SUMMARY OF OUTPUT: SPATIAL LAG MODEL - MAXIMUM LIKELIHOOD ESTIMATION \ulnone \b0 
+\par Data set            : \b Minas8 \b0 
+\par Spatial Weight      : \b queen.GAL \b0 
+\par Dependent Variable  :\b     INDICE95 \b0  Number of Observations:  754
+\par Mean dependent var  :     15.4488  Number of Variables   :    5
+\par S.D. dependent var  :     7.90466  Degrees of Freedom    :  749\par Lag coeff.   (Rho)  :    0.320916 
+ 
+ 
+\par 
+ 
+ \par R-squared           :    0.356705  Log likelihood        :    -2469.82
+ \par Sq. Correlation     : -            Akaike info criterion :     4949.65
+ \par Sigma-square        :     40.1954  Schwarz criterion     :     4972.77
+ \par S.E of regression   :     6.33998\par 
+ 
+ 
+ \par -----------------------------------------------------------------------
+\par \b     Variable    Coefficient     Std.Error    z-value      Probability \b0 
+\par -----------------------------------------------------------------------
+\par   W_INDICE95     0.3209159     0.04451085       7.209834    0.0000000
+\par     CONSTANT      7.134042        1.18707       6.009792    0.0000000
+\par      GINI_91     -12.58462        2.30153      -5.467938    0.0000000
+\par     URBLEV_1       17.7851       1.341733       13.25532    0.0000000
+\par       PIB_PC    0.00012792   9.350596e-005       1.368041    0.1712992
+\par -----------------------------------------------------------------------
+\par 
+ 
+ \par \b REGRESSION DIAGNOSTICS \b0 
+\par \b DIAGNOSTICS FOR HETEROSKEDASTICITY \b0 
+\par RANDOM COEFFICIENTS\par \b TEST                                     DF     VALUE         PROB \b0 \par Breusch-Pagan test                       3       25.08392     0.0000148
+\par 
+ 
+ 
+ \par \b \ul DIAGNOSTICS FOR SPATIAL DEPENDENCE \ulnone \b0 
+\par SPATIAL LAG DEPENDENCE FOR WEIGHT MATRIX : \b queen.GAL \b0 
+\par \b TEST                                     DF     VALUE         PROB \b0 \par Likelihood Ratio Test                    1       54.18645     0.0000000
+\par ========================= END OF REPORT ==============================
+\par 
+ 
+ 
+\par \b\f1\fs20
+\par }
