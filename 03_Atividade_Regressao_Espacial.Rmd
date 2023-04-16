@@ -1,0 +1,149 @@
+---
+title: "R Notebook"
+output:
+  pdf_document: default
+  html_notebook: default
+  html_document:
+    df_print: paged
+---
+
+```{r, echo=FALSE, include=FALSE, message = FALSE}
+rm(list = ls())
+gc()
+
+knitr::opts_chunk$set(
+  echo = FALSE,
+  include = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  fig.pos = "H",
+  out.extra = ""
+)
+options(
+  knitr.graphics.error = FALSE,
+  knitr.kable.NA = '',
+  dplyr.summarise.inform = FALSE
+)
+
+library(sf)
+library(tmap)
+library(sp)
+library(spdep)
+library(spatialreg)
+library(readr)
+library(janitor)
+library(dplyr)
+library(gganimate)
+library(lubridate)
+library(textreg)
+```
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+
+# Bases de Dados
+df <- st_read("dados/MG/MG_Municipios.shp")
+df <-
+  df %>% mutate(
+    TGDPPC_14 = (1 / 14) * log(GDPPC_14 / GDPPC_99),
+    logGDPPC_99 = log(GDPPC_99),
+    TIDHM_10 = (1 / 19) * log(IDHM_10 / IDHM_91),
+    logIDHM_91 = log(IDHM_91),
+    TIDHM_E_10 = (1 / 19) * log(IDHM_E_10 / IDHM_E_91),
+    logIDHM_E_91 = log(IDHM_E_91),
+    TIDHM_L_10 = (1 / 19) * log(IDHM_L_10 / IDHM_L_91),
+    logIDHM_L_91 = log(IDHM_L_91),
+    TIDHM_R_10 = (1 / 19) * log(IDHM_R_10 / IDHM_R_91),
+    logIDHM_R_91 = log(IDHM_R_91)
+  )
+
+dfsp <- as(df, "Spatial")
+
+```
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE, results='asis'}
+
+sf_use_s2(FALSE)
+
+# Matriz de pesos espaciais
+neighbors <- poly2nb(dfsp, row.names = dfsp$CODMUN6, queen = TRUE)
+W <- nb2mat(neighbors, style = "W")
+WL <- mat2listw(W, style = "W")
+
+
+# Funcao para selecao de modelo mais adequado. Segue a arvore de
+# decisao passada pelo Haddad
+
+model_selection <- function(depvar, indepvar, d, W) {
+  model = lm(reformulate(depvar, response = indepvar), data = d)
+  model_err = errorsarlm(reformulate(depvar, response = indepvar), data = d, W)
+  model_lag = lagsarlm(reformulate(depvar, response = indepvar), data = d, W)
+  
+  LTest = lm.LMtests(model, W, test = c("LMerr", "LMlag", "RLMerr", "RLMlag"))
+  LMerrp = LTest$LMerr$p.value
+  RLMerrp = LTest$RLMerr$p.value
+  LMlagp = LTest$LMlag$p.value
+  RLMlagp = LTest$RLMlag$p.value
+  
+  if ((LMerrp > 0.05) && (LMlagp > 0.05)) {
+    return(model)
+  } else if ((LMerrp < 0.05) && (LMlagp < 0.05)) {
+    if ((RLMerrp < 0.05) && (RLMlagp < 0.05)) {
+      if ((RLMerrp < RLMlagp)) {
+        return(model_err)
+      } else {
+        return(model_lag)
+      }
+    } else if (RLMerrp < 0.05) {
+      return(model_err)
+    } else{
+      return(model_lag)
+    }
+  } else if (LMerrp < 0.05) {
+    return(model_err)
+  } else {
+    return(model_lag)
+  }
+}
+```
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE, results='asis'}
+PIBpc <- model_selection_abs("TGDPPC_14", "logGDPPC_99", dfsp, WL)
+IDHM  <- model_selection_abs("TIDHM_10", "logIDHM_91", dfsp, WL)
+IDHMe <- model_selection_abs("TIDHM_E_10", "logIDHM_E_91", dfsp, WL)
+IDHMl <- model_selection_abs("TIDHM_L_10", "logIDHM_L_91", dfsp, WL)
+IDHMr <- model_selection_abs("TIDHM_R_10", "logIDHM_R_91", dfsp, WL)
+ 
+```
+
+## Teste de Convergência Absoluta
+
+```{r}
+screenreg(
+  list(PIBpc, IDHM, IDHMe, IDHMl, IDHMr),
+  custom.header = 
+  custom.model.names = c("PIBpc", "IDHM", "IDHMe", "IDHMl", "IDHMr"),
+  custom.coef.map = list(
+    "(Intercept)" = "alpha",
+    "TGDPPC_14" = "beta",
+    "TIDHM_10" = "beta",
+    "TIDHM_E_10" = "beta",
+    "TIDHM_L_10" = "beta",
+    "TIDHM_R_10" = "beta",
+    "lambda" = "lambda",
+    "rho" = "rho"
+  ),
+  custom.gof.rows = list(
+    "Tipo de Modelo" = c("Erro", "Defasado", "Erro", "Defasado", "Defasado"),
+    "Velocidade de Convergencia" = c()
+  )
+)
+```
+
+Como podemos ver na tabela acima, os coeficientes negativos para Beta, isto é, a relação entre o nível inicial dos indicadores e seu crescimento ao longo do tempo, indicam uma forte evidência a favor da convergência absoluta das variáveis.
+
+## Teste de Convergência Condicional
+
+```{r}
+
+```
+

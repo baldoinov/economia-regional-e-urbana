@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+    <title>Minas8</title>
+    <layers>
+        <layer>
+            <datasource>
+                <type>ESRI Shapefile</type>
+                <path>Minas8.shp</path>
+            </datasource>
+            <layername>Minas8</layername>
+            <title/>
+            <variable_order>
+                <time_ids>
+                    <id>time 0</id>
+                </time_ids>
+                <var>CODMUNI</var>
+                <var>NOMMUNI</var>
+                <var>
+                    INDICE94
+                    <displayed_decimals>6</displayed_decimals>
+                </var>
+                <var>
+                    INDICE95
+                    <displayed_decimals>6</displayed_decimals>
+                </var>
+                <var>
+                    GINI_91
+                    <displayed_decimals>6</displayed_decimals>
+                </var>
+                <var>
+                    AREA
+                    <displayed_decimals>6</displayed_decimals>
+                </var>
+                <var>POP_94</var>
+                <var>POP_RUR</var>
+                <var>POP_URB</var>
+                <var>POP_FEM</var>
+                <var>POP_MAS</var>
+                <var>POP_TOT</var>
+                <var>
+                    URBLEV_1
+                    <displayed_decimals>6</displayed_decimals>
+                </var>
+                <var>OID_</var>
+                <var>CODMUNI_1</var>
+                <var>NOMUNI</var>
+                <var>PIB_PC</var>
+                <var>
+                    X_COORD
+                    <displayed_decimals>6</displayed_decimals>
+                </var>
+                <var>
+                    Y_COORD
+                    <displayed_decimals>6</displayed_decimals>
+                </var>
+                <var>
+                    OLS_PREDIC
+                    <displayed_decimals>6</displayed_decimals>
+                </var>
+                <var>
+                    OLS_RESIDU
+                    <displayed_decimals>6</displayed_decimals>
+                </var>
+            </variable_order>
+            <custom_classifications/>
+            <weights_entries>
+                <weights>
+                    <title>CRIME_MINAS_QUEEN</title>
+                    <default/>
+                    <meta_info>
+                        <weights_type>queen</weights_type>
+                        <order>1</order>
+                        <inc_lower_orders>false</inc_lower_orders>
+                        <path>CRIME_MINAS_QUEEN.gal</path>
+                        <id_variable>CODMUNI</id_variable>
+                        <symmetry>symmetric</symmetry>
+                        <num_observations>754</num_observations>
+                        <min_neighbors>1</min_neighbors>
+                        <max_neighbors>16</max_neighbors>
+                        <mean_neighbors>5.705570291777188</mean_neighbors>
+                        <median_neighbors>6</median_neighbors>
+                        <non_zero_perc>0.75670693524896393</non_zero_perc>
+                    </meta_info>
+                </weights>
+            </weights_entries>
+            <default_vars>
+                <default_var>
+                    <name>URBLEV_1</name>
+                    <time_id>time 0</time_id>
+                </default_var>
+                <default_var>
+                    <name>GINI_91</name>
+                    <time_id>time 0</time_id>
+                </default_var>
+                <default_var>
+                    <name/>
+                    <time_id>time 0</time_id>
+                </default_var>
+                <default_var>
+                    <name/>
+                    <time_id>time 0</time_id>
+                </default_var>
+            </default_vars>
+        </layer>
+    </layers>
+</project>
